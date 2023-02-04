@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background: #ffffff;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.container {
+    position: relative;
+}
+
+ul.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    background: linear-gradient(45deg, rgba(0, 0, 255, 0.205), rgba(255, 0, 0, 0.274));
+    padding: 38px 26px 34px 26px;
+    border-radius: 18px 18px 52px 52px;
+}
+
+ul li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 8px;
+    padding: 0 24px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+ul li .nav-item-title {
+    position: absolute;
+    font-size: 14px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+ul li span {
+    transition: all ease 0.8s;
+}
+
+ul li.active span {
+    color: white;
+}
+
+ul li.active .nav-item-title {
+    opacity: 1;
+    bottom: -18px;
+}
+
+ul li span.far {
+    font-weight: 300;
+}
+
+ul li.active span.far {
+    font-weight: 600;
+    transform: translate(0, -10px);
+}
+
+.magic-dot {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background: linear-gradient(45deg, rgba(0, 0, 255, 0.205), rgba(255, 0, 0, 0.274));
+    border-radius: 50%;
+    top: -8px;
+    left: 65.5px;
+    z-index: 2;
+    transition: all ease 0.8s;
+}
+
+.magic-dot.loading {
+    animation: fly ease 0.8s;
+}
+
+@keyframes fly {
+    50% {top: -52px; }
+}
+
+.magic-dot-base {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    background-color: #ffffff;
+    top: -18px;
+    left: 58px;
+    border-radius: 0 0 12px 0;
+    transform: rotate(45deg);
+    z-index: 1;
+    transition: all ease 0.5s;
+    transition-delay: 0.2s;
+}
+
+.magic-dot-base:before, .magic-dot-base:after {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background-image: radial-gradient(circle, #ffffff, 64%, red, 64%);
+    background-repeat: no-repeat;
+    background-size: 36px 36px;
+}
+
+.magic-dot-base:before {
+    bottom: -6px;
+    left: -5px;
+    background-position: -3px 10px;
+}
+
+.magic-dot-base:after {
+    right: -6px;
+    top: -5px;
+    background-position: 10px -3px;
+}
+
+
